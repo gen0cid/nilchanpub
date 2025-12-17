@@ -52,25 +52,30 @@ func NewUser(
 func (n *User) OpenAccount() {
 	n.IsClosed = false
 }
+
 func (n *User) CloseAccount() {
 	n.IsClosed = true
 }
+
 func (n *User) ChangeAge(NewAge int) {
 	if NewAge >= 0 && NewAge <= 150 {
 		n.Age = NewAge
 	}
 
 }
+
 func (n *User) ChangeHeight(NewHeight float64) {
 	if NewHeight >= 0.0 && NewHeight <= 3.0 {
 		n.Height = NewHeight
 	}
 }
+
 func (n *User) ChangeWeight(NewWeight float64) {
 	if NewWeight >= 0.0 && NewWeight <= 300.0 {
 		n.Weight = NewWeight
 	}
 }
+
 func (n User) greeteeng() {
 	fmt.Println("Всем привет, меня зовут:", n.Name)
 	fmt.Println("Моя фамилия:", n.Surname)
