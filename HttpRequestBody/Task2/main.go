@@ -43,14 +43,19 @@ func (d *dataBase) handlerDelete(w http.ResponseWriter, r *http.Request) {
 
 	httRequuestBodyString := string(httRequuestBody)
 
-	httRequuestId, err := strconv.Atoi(httRequuestBodyString)
+	httpRequuestId, err := strconv.Atoi(httRequuestBodyString)
 	if err != nil {
 		fmt.Println("неорректный ввод, введите id:", err)
 		return
 	}
+	_, ok := d.names[httpRequuestId]
+	if !ok {
+		fmt.Println("Нет такого элемента в мампе")
+		return
+	}
 
-	fmt.Printf("Удаление элемента c id:%d\n", httRequuestId)
-	delete(d.names, httRequuestId)
+	fmt.Printf("Удаление элемента c id:%d\n", httpRequuestId)
+	delete(d.names, httpRequuestId)
 	fmt.Println("текущая мапа:", d.names)
 }
 
