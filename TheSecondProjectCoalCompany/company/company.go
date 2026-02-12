@@ -8,9 +8,22 @@ import (
 	"github.com/google/uuid"
 )
 
-type company struct {
+type Company struct {
 	miners    map[miner.MinerType]map[uuid.UUID]miner.Miner
 	equipment *equipment.Equipment
 
 	statistics *statistics.StatisticsCompany
+}
+
+func newCompany() *Company {
+	c := &Company{
+		miners:     make(map[miner.MinerType]map[uuid.UUID]miner.Miner),
+		equipment:  equipment.NewEquipment(),
+		statistics: statistics.NewStatistics(),
+	}
+
+	return c
+}
+func baseIncome() {
+for 
 }

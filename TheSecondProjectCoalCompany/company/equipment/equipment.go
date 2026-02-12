@@ -1,6 +1,8 @@
 package equipment
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Equipment struct {
 	pickaxe     bool
@@ -8,8 +10,8 @@ type Equipment struct {
 	trolleys    bool
 }
 
-func newEquipment() Equipment {
-	return Equipment{}
+func NewEquipment() *Equipment {
+	return &Equipment{}
 }
 
 func (e *Equipment) buyPickaxe() {

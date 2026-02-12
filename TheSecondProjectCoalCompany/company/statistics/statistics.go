@@ -15,3 +15,13 @@ type StatisticsCompany struct {
 	startGameTime  time.Time
 	finishGameTime *time.Time
 }
+
+func NewStatistics() *StatisticsCompany {
+	return &StatisticsCompany{
+		balance:         atomic.Int64{},
+		totalBalance:    atomic.Int64{},
+		minerStatistics: make(map[miner.MinerType]int),
+		startGameTime:   time.Now(),
+		finishGameTime:  nil,
+	}
+}
